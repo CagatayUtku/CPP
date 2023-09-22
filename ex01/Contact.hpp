@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 18:35:01 by Cutku             #+#    #+#             */
-/*   Updated: 2023/09/21 17:36:59 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/09/22 16:38:01 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,13 @@ class Contact
 		void	SetNickName(const std::string& str); 
 		void	SetPhoneNumber(const std::string& str);
 		void	SetDarkestSecret(const std::string& str);
-		void	GetFirstName();
-		Contact();
-		~Contact();
+		const std::string GetFirstName();
+		const std::string GetLastName();
+		const std::string GetNickName();
+		const std::string GetPhoneNumber();
+		const std::string GetDarkestSecret();
+		// Contact();
+		// ~Contact();
 };
 
 #endif

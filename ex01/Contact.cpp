@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 18:46:41 by Cutku             #+#    #+#             */
-/*   Updated: 2023/09/21 17:51:21 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/09/22 17:38:09 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,55 +14,54 @@
 
 void	Contact::SetFirstName(const std::string& str)
 {
-	if (!(str.empty()))
+	// if (!(str.empty()))
 		FirstName = str;
-	else
-		std::cout<<"First name cannot be empty"<<std::endl;
 }
 
-void	Contact::GetFirstName()
+const std::string Contact::GetFirstName()
 {
-	std::cout<<FirstName;
+	return(FirstName);
 }
 
 void	Contact::SetLastName(const std::string& str)
 {
 	if (!(str.empty()))
 		LastName = str;
-	else
-		std::cout<<"Last name cannot be empty"<<std::endl;
 }
 
-void	Contact::GetLastName()
+const std::string	Contact::GetLastName()
 {
-	std::cout<<LastName;
+	return(LastName);
 }
 
 void	Contact::SetNickName(const std::string& str)
 {
 	if (!(str.empty()))
 		NickName = str;
-	else
-		std::cout<<"Nick name cannot be empty"<<std::endl;
 }
 
-void	Contact::GetNickName()
+const std::string Contact::GetNickName()
 {
-	std::cout<<NickName;
+	return(NickName);
 }
 
 void	Contact::SetPhoneNumber(const std::string& str)
 {
 	if (!(str.empty()))
-	{
-		if (str.isdigit())
-		FirstName = str;
-	}
-	else
-		std::cout<<"Name cannot be empty"<<std::endl;
+		PhoneNumber = str;
 }
 
-void	Contact::GetPhoneNumber()
+const std::string Contact::GetPhoneNumber()
 {
-	std::cout<<PhoneNumber;
+	return (PhoneNumber);
+}
+
+void	Contact::SetDarkestSecret(const std::string& str)
+{
+	if (!(str.empty()))
+		DarkestSecret = str;
+}
+const std::string Contact::GetDarkestSecret()
+{
+	return (DarkestSecret);
 }
