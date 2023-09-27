@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.h                                        :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 18:43:50 by Cutku             #+#    #+#             */
-/*   Updated: 2023/09/22 17:24:58 by Cutku            ###   ########.fr       */
+/*   Created: 2023/09/24 18:12:07 by Cutku             #+#    #+#             */
+/*   Updated: 2023/09/24 18:34:36 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-#define PHONEBOOK_H
+#include "Zombie.hpp"
 
-#include <iostream>
-#include <string>
-#include "Contact.hpp"
-#include "PhoneBook.hpp"
+Zombie* newZombie( std::string name )
+{
+	Zombie *ptr;
 
-#endif
+	ptr = new Zombie(name);
+	return (ptr);
+}

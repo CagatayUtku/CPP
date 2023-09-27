@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/09/16 18:00:45 by Cutku             #+#    #+#              #
-#    Updated: 2023/09/19 18:55:47 by Cutku            ###   ########.fr        #
+#    Created: 2023/09/24 18:02:50 by Cutku             #+#    #+#              #
+#    Updated: 2023/09/24 18:43:57 by Cutku            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ WHITE = \033[0;97m
 
 .SILENT:
 
-SRCS	=	main.cpp PhoneBook.cpp Contact.cpp
+SRCS	=	main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
@@ -29,7 +29,7 @@ CC			= c++
 RM			= rm -f
 CFLAGS		= -Wall -Werror -Wextra -std=c++98
 
-NAME		= phonebook
+NAME		= solozombie
 
 all: $(NAME)
 

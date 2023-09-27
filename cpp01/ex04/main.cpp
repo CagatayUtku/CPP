@@ -5,33 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/16 17:58:04 by Cutku             #+#    #+#             */
-/*   Updated: 2023/09/22 18:00:21 by Cutku            ###   ########.fr       */
+/*   Created: 2023/09/27 17:06:59 by Cutku             #+#    #+#             */
+/*   Updated: 2023/09/27 17:52:15 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.h"
+#include "Replace.hpp"
 
-int	main(void)
+int main(int argc, char **argv)
 {
-	std::string str;
-	PhoneBook deneme;
-
-	while (1)
+	if (argc == 4)
 	{
-		std::cout<<"Please type the operation that you want to do."<<std::endl;
-		std::cout<<"Choices are : ADD / SEARCH / EXIT"<<std::endl;
-		std::getline(std::cin, str);
-		if (std::cin.eof())
-			return (1);
-		else if (str.compare("EXIT") == 0)
-			return (0);
-		else if (str.compare("ADD") == 0)
-			deneme.AddNewContact();
-		else if (str.compare("SEARCH") == 0)
-			deneme.DisplayContacts();
-		else
-			std::cout<<"Wrong operation. Try again."<<std::endl;
+		Replace replace(argv[1], argv[2], argv[3]);
+		replace.createReplaceFile();
 	}
-	return (0);
+	else
+	{
+		std::cout<<"Usage: ./replace <filename> <string to replace> <string to replace with>"<<std::endl;
+		return 1;
+	}
+	return 0;
 }
