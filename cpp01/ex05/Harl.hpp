@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/24 18:04:49 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/03 16:13:36 by Cutku            ###   ########.fr       */
+/*   Created: 2023/10/01 12:45:54 by Cutku             #+#    #+#             */
+/*   Updated: 2023/10/03 17:59:16 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef HARL_HPP
+# define HARL_HPP
 
-#include <iostream>
-#include <string>
+# include <iostream>
 
-class Zombie
+class Harl
 {
 	private:
-		std::string name;
+		void	debug(void);
+		void	info(void);
+		void	warning(void);
+		void	error(void);
 	public:
-		void announce(void);
-		void	setName(std::string name);
-		Zombie();
-		~Zombie();
+		Harl();
+		~Harl();
+		void complain( std::string level );
 };
-	Zombie* zombieHorde( int N, std::string name );
 
 #endif

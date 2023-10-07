@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/24 18:04:49 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/03 16:13:36 by Cutku            ###   ########.fr       */
+/*   Created: 2023/09/25 15:11:43 by Cutku             #+#    #+#             */
+/*   Updated: 2023/10/03 16:21:55 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#include "Zombie.hpp"
 
-#include <iostream>
-#include <string>
-
-class Zombie
+int main (void)
 {
-	private:
-		std::string name;
-	public:
-		void announce(void);
-		void	setName(std::string name);
-		Zombie();
-		~Zombie();
-};
-	Zombie* zombieHorde( int N, std::string name );
+	std::string name;
+	int	numZombies;
+	Zombie *zombies;
 
-#endif
+
+	name = "Zombie";
+	numZombies = 5;
+	zombies = zombieHorde(numZombies, name);
+	int	i;
+
+	i = -1;
+	while (++i < numZombies)
+		zombies[i].announce();
+	delete[] zombies;
+	return (0);
+}

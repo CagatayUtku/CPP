@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/09/24 18:02:50 by Cutku             #+#    #+#              #
-#    Updated: 2023/10/03 16:05:19 by Cutku            ###   ########.fr        #
+#    Created: 2023/10/01 12:44:33 by Cutku             #+#    #+#              #
+#    Updated: 2023/10/01 12:45:05 by Cutku            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ WHITE = \033[0;97m
 
 .SILENT:
 
-SRCS	=	main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS	=	main.cpp Harl.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
@@ -29,13 +29,13 @@ CC			= c++
 RM			= rm -f
 CFLAGS		= -Wall -Werror -Wextra -std=c++98
 
-NAME		= solozombie
+NAME		= harl
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	echo "$(GREEN)Solozombie compiled successfully!$(DEF_COLOR)"
+	echo "$(GREEN)Harl compiled successfully!$(DEF_COLOR)"
 
 clean:
 	$(RM) $(OBJS)

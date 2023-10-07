@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/24 18:04:49 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/03 16:13:36 by Cutku            ###   ########.fr       */
+/*   Created: 2023/09/27 17:06:59 by Cutku             #+#    #+#             */
+/*   Updated: 2023/09/27 17:52:15 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#include "Replace.hpp"
 
-#include <iostream>
-#include <string>
-
-class Zombie
+int main(int argc, char **argv)
 {
-	private:
-		std::string name;
-	public:
-		void announce(void);
-		void	setName(std::string name);
-		Zombie();
-		~Zombie();
-};
-	Zombie* zombieHorde( int N, std::string name );
-
-#endif
+	if (argc == 4)
+	{
+		Replace replace(argv[1], argv[2], argv[3]);
+		replace.createReplaceFile();
+	}
+	else
+	{
+		std::cout<<"Usage: ./replace <filename> <string to replace> <string to replace with>"<<std::endl;
+		return 1;
+	}
+	return 0;
+}

@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Replace.hpp                                        :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 17:19:17 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/03 17:43:07 by Cutku            ###   ########.fr       */
+/*   Created: 2023/10/01 16:40:44 by Cutku             #+#    #+#             */
+/*   Updated: 2023/10/07 14:18:40 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef REPLACE_HPP
-# define REPLACE_HPP
+
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
 # include <iostream>
-# include <fstream>
-# include <string>
+# include <cmath>
 
-class Replace
+class Fixed
 {
 	private:
-		std::string filename;
-		std::string s1;
-		std::string s2;
-		std::string newFilename;
+		int					value;
+		static const int	bits = 8;
 	public:
-		Replace(std::string filename, std::string s1, std::string s2);
-		~Replace();
-		void	createReplaceFile();
-		void	modifyLine(std::string *line);
+		float	toFloat(void) const;
+		int		toInt(void) const;
+		Fixed();
+		Fixed(const int value);
+		Fixed(const float value);
+		Fixed(const Fixed &copy);
+		Fixed &operator=(const Fixed &copy);
+		~Fixed();
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
 };
+
+std::ostream &operator<<(std::ostream &out, const Fixed &value);
 
 #endif
