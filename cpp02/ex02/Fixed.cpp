@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 20:55:03 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/07 17:06:55 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/10/08 16:09:47 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,27 +131,26 @@ bool Fixed::operator!=(const Fixed& copy) const
 
 Fixed Fixed::operator+(const Fixed& copy)
 {
-	
-	return (this->toFloat() + copy.toFloat());
+	Fixed temp(this->toFloat() + copy.toFloat());
+	return (temp);
 }
 
 Fixed Fixed::operator-(const Fixed& copy)
 {
-	this->value -= copy.getRawBits();
-	return (*this);
+	Fixed temp(this->toFloat() - copy.toFloat());
+	return (temp);
 }
 
 Fixed Fixed::operator*(const Fixed& copy)
 {
-	this->value *= copy.getRawBits();
-	this->value = this->value / (1 << this->bits);
-	return (*this);
+	Fixed temp(this->toFloat() * copy.toFloat());
+	return (temp);
 }
 
 Fixed Fixed::operator/(const Fixed& copy)
 {
-	this->value /= copy.toFloat();
-	return (*this);
+	Fixed temp(this->toFloat() / copy.toFloat());
+	return (temp);
 }
 
 // pre - increment and decrement functions

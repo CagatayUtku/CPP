@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/10/02 18:32:16 by Cutku             #+#    #+#              #
-#    Updated: 2023/10/08 16:12:51 by Cutku            ###   ########.fr        #
+#    Created: 2023/10/08 16:31:35 by Cutku             #+#    #+#              #
+#    Updated: 2023/10/08 21:14:55 by Cutku            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ WHITE = \033[0;97m
 
 .SILENT:
 
-SRCS	=	main.cpp Fixed.cpp
+SRCS	=	main.cpp ClapTrap.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
@@ -29,14 +29,13 @@ CC			= c++
 RM			= rm -f
 CFLAGS		= -Wall -Werror -Wextra -std=c++98
 
-NAME		= lotsofoverloads
+NAME		= ClapTrap
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	echo "$(GREEN)Ex02 compiled successfully!$(DEF_COLOR)"
-	$(echo -e "\033[5mA")
+	echo "$(GREEN)Ex00 compiled successfully!$(DEF_COLOR)"
 clean:
 	$(RM) $(OBJS)
 
