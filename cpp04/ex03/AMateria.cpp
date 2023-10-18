@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 12:54:16 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/17 13:19:33 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/10/18 11:51:12 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ AMateria::~AMateria()
 AMateria& AMateria::operator=(const AMateria &copy)
 {
 	this->type = copy.type;
+	return (*this);
 }
 
 std::string const & AMateria::getType() const
