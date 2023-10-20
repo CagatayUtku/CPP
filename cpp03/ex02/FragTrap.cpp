@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 10:08:18 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/16 11:31:43 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/10/20 11:23:11 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ FragTrap::FragTrap()
 	std::cout << "FragTrap Default Constructor called" << std::endl;
 }
 
-FragTrap::FragTrap(const std::string name) : ClapTrap(name)
+FragTrap::FragTrap(const std::string name)
 {
 	std::cout << "FragTrap Paramaterized Constructor called"<<std::endl;
+	this->setName(name);
 	this->setHitPoints(100);
 	this->setEnergyPoints(100);
 	this->setAttackDamage(30);
@@ -52,7 +53,7 @@ void FragTrap::attack(const std::string &target)
 		if (this->getEnergyPoints() > 0)
 		{
 			this->setEnergyPoints(getEnergyPoints() - 1);
-			std::cout<<"\033[0;91m"<<"FragTrap "<<this->getName()<<" attacks "<<target<<", causing "<<this->getAttackDamage()<<" points of damage!"<<"\033[0;39m"<<std::endl;
+			std::cout<<"FragTrap "<<this->getName()<<" attacks "<<target<<", causing "<<this->getAttackDamage()<<" points of damage!"<<std::endl;
 		}
 		else
 			std::cout<<"FragTrap "<<this->getName()<<" does not have energy points"<<std::endl;

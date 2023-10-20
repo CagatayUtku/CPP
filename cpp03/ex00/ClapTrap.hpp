@@ -31,9 +31,9 @@ class	ClapTrap
 		~ClapTrap();
 		//getters and setters;
 		void	setName(const std::string name);
-		void	setHitPoints(const unsigned int hitPoints);
-		void	setEnergyPoints(const unsigned int energyPoints);
-		void	setAttackDamage(const unsigned int attackDamage);
+		void	setHitPoints(const int hitPoints);
+		void	setEnergyPoints(const int energyPoints);
+		void	setAttackDamage(const int attackDamage);
 		std::string	getName(void) const;
 		int	getHitPoints() const;
 		int	getEnergyPoints() const;

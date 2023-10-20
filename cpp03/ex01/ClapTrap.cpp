@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 16:50:47 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/08 21:21:44 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/10/20 11:10:46 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 ClapTrap::ClapTrap(void) : hitPoints(10), energyPoints(10), attackDamage(0) 
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ClapTrap Default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0) 
 {
-	std::cout << "Object created with the name : "<<this->name<< std::endl;
+	std::cout << "ClapTrap Object created with the name : "<< this->name << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
 {
-	std::cout<<"Copy constructor called"<<std::endl;
+	std::cout << "ClapTrap Copy constructor called" << std::endl;
 	*this = copy;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout<<"Destructor called"<<std::endl;
+	std::cout << "ClapTrap Destructor called" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
@@ -49,19 +49,28 @@ void ClapTrap::setName(std::string name)
 	this->name = name;
 }
 
-void ClapTrap::setAttackDamage(unsigned int attackDamage)
+void ClapTrap::setAttackDamage(int attackDamage)
 {
-	this->attackDamage = attackDamage;
+	if (attackDamage >= 0)
+		this->attackDamage = attackDamage;
+	else
+		this->attackDamage = 0;
 }
 
-void ClapTrap::setEnergyPoints(unsigned int	energyPoints)
+void ClapTrap::setEnergyPoints(int	energyPoints)
 {
-	this->energyPoints = energyPoints;
+	if (energyPoints >= 0)
+		this->energyPoints = energyPoints;
+	else
+		this->energyPoints = 0;
 }
 
-void ClapTrap::setHitPoints(unsigned int hitPoints)
+void ClapTrap::setHitPoints(int hitPoints)
 {
-	this->hitPoints = hitPoints;
+	if (hitPoints >= 0)
+		this->hitPoints = hitPoints;
+	else
+		this->hitPoints = 0;
 }
 
 std::string	ClapTrap::getName(void) const
@@ -93,38 +102,44 @@ void	ClapTrap::attack(const std::string &target)
 		if (this->energyPoints > 0)
 		{
 			this->energyPoints--;
-			std::cout<<"\033[0;91m"<<"ClapTrap "<<this->name<<" attacks "<<target<<", causing "<<this->attackDamage<<" points of damage!"<<"\033[0;39m"<<std::endl;
+			std::cout<<"ClapTrap "<<this->name<<" attacks "<<target<<", causing "<<this->attackDamage<<" points of damage!"<<std::endl;
 		}
 		else
-			std::cout<<"ClapTrap "<<this->name<<" does not have energy points"<<std::endl;
+			std::cout<<"ClapTrap "<<this->name<<" does not have energy points to attack"<<std::endl;
 	}
 	else
-		std::cout<<"ClapTrap "<<this->name<<"Sorry...Its too late !"<<std::endl;
+		std::cout<<"ClapTrap "<<this->name<<" Sorry...Its too late !"<<std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->hitPoints < amount)
-		this->hitPoints = 0;
-	else
-		this->hitPoints -= amount;
-	std::cout<<"\033[0;91m"<<"ClapTrap "<<this->name<<" takes "<< amount <<" points of damage!"<<"\033[0;39m"<<std::endl;
+	if (amount >= 0)
+	{
+		if (this->hitPoints < amount)
+			this->hitPoints = 0;
+		else
+			this->hitPoints -= amount;
+		std::cout<<"ClapTrap "<<this->name<<" takes "<< amount <<" points of damage!"<<std::endl;
+	}
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->hitPoints > 0)
+	if (amount >=0)
 	{
-		if (this->energyPoints > 0)
+		if (this->hitPoints > 0)
 		{
-			this->energyPoints--;
-			this->hitPoints += amount;
-			std::cout<<"\033[0;32m"<<"ClapTrap "<<this->name<<" is repaired for "<<amount<<" points of damage!"<<"\033[0;39m"<<std::endl;
+			if (this->energyPoints > 0)
+			{
+				this->energyPoints--;
+				this->hitPoints += amount;
+				std::cout<<"ClapTrap "<<this->name<<" is repaired  "<<amount<<std::endl;
+			}
+			else
+				std::cout<<"ClapTrap "<<this->name<<" does not have energy points"<<std::endl;
 		}
 		else
-			std::cout<<"ClapTrap "<<this->name<<" does not have energy points"<<std::endl;
+			std::cout<<"ClapTrap "<<this->name<<" Sorry...Its too late !"<<std::endl;
 	}
-	else
-		std::cout<<"\033[1m"<<"ClapTrap "<<this->name<<"Sorry...Its too late !"<<"\033[0m"<<std::endl;
 }
 

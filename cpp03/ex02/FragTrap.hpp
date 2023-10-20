@@ -6,12 +6,12 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 08:22:30 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/16 11:31:47 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/10/20 11:25:45 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SVAVTRAP_HPP
-#define FragTrap_HPP
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
 
