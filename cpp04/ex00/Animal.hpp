@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 12:07:16 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/16 12:59:14 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/10/23 13:28:29 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Animal
 		Animal();
 		Animal(std::string type);
 		Animal(const Animal &copy);
-		~Animal();
+		virtual ~Animal();
 		Animal& operator=(const Animal &copy);
 	//member functions
 		void setType(std::string type);

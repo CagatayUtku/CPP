@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 13:20:22 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/17 17:05:06 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/10/23 13:36:33 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Ice::Ice() : AMateria("ice")
 	std::cout<< "Ice default constructor called"<<std::endl;
 }
 
-Ice::Ice(const Ice &copy)
+Ice::Ice(const Ice &copy) : AMateria()
 {
 	std::cout<< "Ice copy constructor called"<<std::endl;
 	*this = copy;

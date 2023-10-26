@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 12:54:16 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/18 11:51:12 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/10/23 13:32:58 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ AMateria::AMateria()
 
 AMateria::AMateria(std::string const & type)
 {
-	this->type = type;
 	std::cout<<"AMateria parameterized constructor called with "<< this->type<<" "<<std::endl;
+	this->type = type;
 }
 
 AMateria::AMateria(const AMateria &copy)
@@ -44,5 +44,6 @@ std::string const & AMateria::getType() const
 }
 
 void AMateria::use(ICharacter& target)
-{	
+{
+	std::cout<<"AMateria base called with"<<target.getName()<<" called"<<std::endl;
 }

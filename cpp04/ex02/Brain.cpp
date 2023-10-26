@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 16:05:38 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/16 16:19:18 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/10/23 11:43:46 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ Brain::~Brain()
 
 Brain& Brain::operator=(const Brain &copy)
 {
-	this->ideas[0] = copy.ideas[0];
+	int	i;
+
+	i = -1;
+	while (++i < 100)
+		this->ideas[i] = copy.ideas[i];
 	return (*this);
 }

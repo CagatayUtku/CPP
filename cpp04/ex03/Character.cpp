@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:15:26 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/18 14:52:03 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/10/23 13:54:23 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@ Character::Character()
 {
 	int i;
 
+	std::cout<< "Character default constructor called."<<std::endl;
 	i = -1;
 	while (++i < 4)
 		this->inventory[i] = NULL;
-	std::cout<< "Character default constructor called."<<std::endl;
 }
 
 Character::Character(std::string name) : name(name)
 {	
 	int i;
 
+	std::cout<< "Character parameterized constructor called with "<<this->name<<std::endl;
 	i = -1;
 	while (++i < 4)
 		this->inventory[i] = NULL;
-	std::cout<< "Character parameterized constructor called with "<<this->name<<std::endl;
 }
 
 Character::Character(const Character &copy)
@@ -67,6 +67,7 @@ Character::~Character()
 {
 	int i;
 
+	std::cout<< "Character destructor called with "<<this->name<<std::endl;
 	i = 0;
 	while (i < 4)
 	{
@@ -77,7 +78,6 @@ Character::~Character()
 		}
 		i++;
 	}
-	std::cout<< "Character destructor called with "<<this->name<<std::endl;
 }
 
 void Character::equip(AMateria *m)

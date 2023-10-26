@@ -1,22 +1,23 @@
 #include "Dog.hpp"
 
-Dog::Dog()
+Dog::Dog() : Animal()
 {
+	std::cout<<"Dog default constructor called"<<std::endl;
 	this->type = "Dog";
 	this->brain = new Brain();
-	std::cout<<"Dog default constructor called"<<std::endl;
 }
 
-Dog::Dog(std::string type)
+Dog::Dog(std::string type) : Animal()
 {
 	std::cout<<"Dog paramaterized constructor called"<<std::endl;
 	this->type = type;
 	this->brain = new Brain();
 }
 
-Dog::Dog(const Dog &copy)
+Dog::Dog(const Dog &copy) : Animal()
 {
 	std::cout<<"Dog copy constructor called"<<std::endl;
+	this->brain = NULL;
 	*this = copy;
 }
 
@@ -28,8 +29,13 @@ Dog::~Dog()
 
 Dog& Dog::operator=(const Dog &copy)
 {
-	this->type = copy.type;
-	this->brain = copy.brain;
+	if (this != &copy)
+	{
+		this->type = copy.type;
+		if (this->brain != NULL)
+			delete this->brain;
+		this->brain = new Brain(*(copy.brain));
+	}
 	return (*this);
 }
 

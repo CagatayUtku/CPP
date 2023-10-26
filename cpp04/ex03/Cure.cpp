@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:03:54 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/18 10:30:04 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/10/23 13:36:19 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Cure::Cure() : AMateria("cure")
 	std::cout<< "Cure default constructor called"<<std::endl;
 }
 
-Cure::Cure(const Cure &copy)
+Cure::Cure(const Cure &copy) : AMateria()
 {
 	std::cout<< "Cure copy constructor called"<<std::endl;
 	*this = copy;

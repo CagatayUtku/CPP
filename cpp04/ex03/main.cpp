@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 11:33:01 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/18 17:56:29 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/10/24 10:14:13 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 
-void leaks(void)
-{
-	system("leaks ex02");
-}
-
-
 int main(void)
 {
 	AMateria* unequipt;
@@ -30,7 +24,6 @@ int main(void)
 	AMateria *cure;
 	AMateria* tmp;
 
-	atexit(&leaks);
 	IMateriaSource* src = new MateriaSource();
 	ice = new Ice();
 	cure = new Cure();

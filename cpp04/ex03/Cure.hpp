@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:05:26 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/17 17:05:51 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/10/23 16:02:11 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Cure : public AMateria
 		Cure();
 		Cure(const Cure &copy);
 		Cure& operator=(const Cure &copy);
-		~Cure();
+		virtual ~Cure();
 
 };
 

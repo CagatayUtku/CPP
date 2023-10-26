@@ -9,7 +9,7 @@ WHITE = \033[0;97m
 
 .SILENT:
 
-SRCS	=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp
+SRCS	=	main.cpp Bureaucrat.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 

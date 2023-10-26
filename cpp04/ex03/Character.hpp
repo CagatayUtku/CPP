@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:52:53 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/18 14:23:05 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/10/23 16:02:17 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Character : public ICharacter
 		Character();
 		Character(std::string name);
 		Character(const Character &copy);
-		~Character();
+		virtual ~Character();
 		std::string const & getName() const;
 		Character& operator=(const Character &copy);
 		AMateria* getEquipment(int idx);

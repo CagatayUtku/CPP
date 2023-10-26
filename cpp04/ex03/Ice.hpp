@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 13:12:00 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/17 16:58:15 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/10/23 16:01:54 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Ice : public AMateria
 		Ice();
 		Ice(const Ice &copy);
 		Ice& operator=(const Ice &copy);
-		~Ice();
+		virtual ~Ice();
 
 };
 

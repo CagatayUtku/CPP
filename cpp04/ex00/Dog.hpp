@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 12:52:46 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/16 12:59:22 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/10/23 15:47:40 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Dog : public Animal
 		Dog();
 		Dog(std::string type);
 		Dog(const Dog &copy);
-		~Dog();
+		virtual ~Dog();
 		Dog& operator=(const Dog &copy);
 		void makeSound() const;
 };

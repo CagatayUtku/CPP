@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 10:20:19 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/18 10:40:38 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/10/23 16:02:36 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class MateriaSource : public IMateriaSource
 		MateriaSource();
 		MateriaSource(const MateriaSource &copy);
 		MateriaSource& operator=(const MateriaSource &copy);
-		~MateriaSource();
+		virtual ~MateriaSource();
 		void learnMateria(AMateria*);
 		AMateria* createMateria(std::string const & type);
 };

@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 12:17:53 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/16 16:12:45 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/10/23 15:49:19 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Cat : public Animal
 		Cat();
 		Cat(std::string type);
 		Cat(const Cat &copy);
-		~Cat();
+		virtual ~Cat();
 		Cat& operator=(const Cat &copy);
 		void makeSound() const;
 };
