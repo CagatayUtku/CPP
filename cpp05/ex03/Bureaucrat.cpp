@@ -6,11 +6,12 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:16:46 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/01 15:54:33 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/01 13:26:52 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat() : _name("NoName")
 {
@@ -42,8 +43,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name)
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy)
 {
-	if (this != &copy)
-		this->_grade = copy._grade;
+	this->_grade = copy._grade;
 	return (*this);
 }
 
@@ -73,8 +73,6 @@ void Bureaucrat::decrement()
 		_grade += 1;
 }
 
-
-
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bla)
 {
 	out<<bla.getName()<<", bureaucrat grade "<<bla.getGrade()<<"."<<std::endl;
@@ -89,4 +87,30 @@ const char* Bureaucrat::GradeTooHighException::what() const throw()
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too low.");
+}
+
+void Bureaucrat::signForm(AForm &form)
+{
+	try
+	{
+		if (form.beSigned(*this))
+			std::cout<<this->_name<<" signed "<<form.getName()<<std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr<<this->_name<<" couldn’t sign "<<form.getName()<<" because "<< e.what() << '\n';
+	}
+}
+
+void Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout<<this->_name<<" executes "<<form.getName()<<std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr<<this->_name<<" couldn’t execute "<<form.getName()<<" because "<< e.what() << '\n';
+	}
 }

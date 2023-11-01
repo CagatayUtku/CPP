@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:37:44 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/26 16:24:49 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/01 15:54:03 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,15 @@ const char* Form::GradeTooHighException::what() const throw()
 const char* Form::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too low.");
+}
+
+std::ostream& operator<<(std::ostream& out, const Form& form)
+{
+	out << "Form " << form.getName() << " is ";
+	if (form.getSigned())
+		out << "signed and ";
+	else
+		out << "not signed and ";
+	out << "requires grade " << form.getGradeToSign() << " to sign and grade " << form.getGradeToExec() << " to execute.";
+	return (out);
 }

@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 13:12:04 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/27 13:12:41 by Cutku            ###   ########.fr       */
+/*   Created: 2023/11/01 17:33:33 by Cutku             #+#    #+#             */
+/*   Updated: 2023/11/01 17:35:08 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM
-#define SHRUBBERYCREATIONFORM
+#include "ScalarConverter.hpp"
 
-#include "AForm.hpp"
-
-class ShrubberyCreationForm : AForm
+int	main(int argc, char **argv)
 {
-	private:
-	public:
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(const ShrubberyCreationForm &copy);	
-		ShrubberyCreationForm& operator=(const ShrubberyCreationForm &copy);
-		~ShrubberyCreationForm();
-};
+	if (argc != 2)
+	{
+		std::cout<<"Wrong number of arguments"<<std::endl;
+		return (1);
+	}
+	ScalarConverter::convert(argv[1]);
 
-#endif
+	return (0);
+}

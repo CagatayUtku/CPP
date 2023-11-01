@@ -9,8 +9,7 @@ WHITE = \033[0;97m
 
 .SILENT:
 
-SRCS	=	main.cpp Bureaucrat.cpp AForm.cpp \
-			PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+SRCS	=	main.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
@@ -18,17 +17,16 @@ CC			= c++
 RM			= rm -f
 CFLAGS		= -Wall -Werror -Wextra -std=c++98
 
-NAME		= Ex02
+NAME		= ex00
 
 all: $(NAME)
 
-%.o:	%.cpp
-	$(CC) $(INC) $(CFLAGS) -c $< -o $@
+.cpp.o:
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	echo "$(GREEN)Ex02 compiled successfully!$(DEF_COLOR)"
-
+	echo "$(GREEN)Ex00 compiled successfully!$(DEF_COLOR)"
 clean:
 	$(RM) $(OBJS)
 

@@ -6,14 +6,15 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:10:19 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/27 13:15:34 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/01 13:10:45 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
 class AForm;
@@ -36,7 +37,8 @@ class Bureaucrat
 		//member functions
 		void increment();
 		void decrement();
-		void signForm(Form &form);
+		void signForm(AForm &form);
+		void executeForm(AForm const & form);
 		//exception classes
 		class GradeTooHighException : public std::exception
 		{

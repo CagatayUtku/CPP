@@ -9,7 +9,7 @@ WHITE = \033[0;97m
 
 .SILENT:
 
-SRCS	=	main.cpp Bureaucrat.cpp AForm.cpp \
+SRCS	=	main.cpp Bureaucrat.cpp AForm.cpp Intern.cpp\
 			PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
@@ -27,7 +27,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	echo "$(GREEN)Ex02 compiled successfully!$(DEF_COLOR)"
+	echo "$(GREEN)Ex03 compiled successfully!$(DEF_COLOR)"
 
 clean:
 	$(RM) $(OBJS)

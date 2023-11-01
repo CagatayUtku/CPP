@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 13:29:29 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/27 13:30:43 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/01 13:13:31 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 
 #include "AForm.hpp"
 
-class PresidentialPardonFrom : AForm
+class PresidentialPardonForm : public AForm
 {
 	private:
 		std::string	_target;
 	public:
-		PresidentialPardonFrom();
-		PresidentialPardonFrom(std::string target);
-		PresidentialPardonFrom(const PresidentialPardonFrom& copy);
-		~PresidentialPardonFrom();
-		PresidentialPardonFrom& operator=(const PresidentialPardonFrom& copy);
+		PresidentialPardonForm();
+		PresidentialPardonForm(std::string target);
+		PresidentialPardonForm(const PresidentialPardonForm& copy);
+		~PresidentialPardonForm();
+		PresidentialPardonForm& operator=(const PresidentialPardonForm& copy);
 
 		std::string	getTarget() const;
 		void		execute(Bureaucrat const & executor) const;

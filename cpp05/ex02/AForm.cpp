@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:37:44 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/27 13:57:34 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/01 13:12:21 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,18 @@ const char* AForm::GradeTooLowException::what() const throw()
 const char* AForm::NotSignedException::what() const throw()
 {
 	return ("Form is not signed.");
+}
+
+void AForm::execute(Bureaucrat const & executor) const
+{
+	if (this->getSigned() == false)
+		throw AForm::NotSignedException();
+	else if (executor.getGrade() > this->getGradeToExec())
+		throw AForm::GradeTooLowException();
+}
+
+std::ostream &operator<<(std::ostream &out, const AForm &bla)
+{
+	out<<bla.getName()<<", bureaucrat grade "<<bla.getGradeToSign()<<", bureaucrat grade "<<bla.getGradeToExec()<<", signed: "<<bla.getSigned()<<"."<<std::endl;
+	return (out);
 }

@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:16:46 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/26 16:07:28 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/01 15:52:19 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,6 @@ void Bureaucrat::decrement()
 		_grade += 1;
 }
 
-
-
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &bla)
-{
-	out<<bla.getName()<<", bureaucrat grade "<<bla.getGrade()<<"."<<std::endl;
-	return (out);
-}
-
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("Grade is too high.");
@@ -101,4 +93,10 @@ void	Bureaucrat::signForm(Form  &form)
 	{
 		std::cerr<<this->_name<<"couldn’t sign "<<form.getName()<<" because "<< e.what() << '\n';
 	}
+}
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &bla)
+{
+	out<<bla.getName()<<", bureaucrat grade "<<bla.getGrade()<<"."<<std::endl;
+	return (out);
 }
