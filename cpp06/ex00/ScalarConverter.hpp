@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:09:57 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/01 18:29:30 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/02 18:13:37 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,18 @@
 #include <iomanip>
 #include <cmath>
 #include <limits>
+#include <cerrno>
+#include <cstring>
+
+enum e_type
+{
+	CHAR,
+	INT,
+	FLOAT,
+	DOUBLE,
+	NON_DISPLAYABLE,
+	IMPOSSIBLE
+};
 
 class	ScalarConverter
 {
@@ -27,12 +39,16 @@ class	ScalarConverter
 		ScalarConverter &operator=(const ScalarConverter &copy);
 		~ScalarConverter();
 	public:
-		static	void typeCheck(char *str);
+		static	int typeSelector(char *str);
 		static	void convert(char *str);
-		static	void printChar(char *str);
-		static	void printInt(char *str);
-		static	void printFloat(char *str);
-		static	void printDouble(char *str);
+		static	char valueChar(char *str);
+		static	int valueInt(char *str);
+		static	float valueFloat(char *str);
+		static	double valueDouble(char *str);
+		static	bool isChar(char *str);
+		static	bool isInt(char *str);
+		static	bool isFloat(char *str);
+		static	bool isDouble(char *str);
 		
 		class NonDisplayableException : public std::exception
 		{

@@ -9,13 +9,12 @@ WHITE = \033[0;97m
 
 .SILENT:
 
-SRCS	=	main.cpp
-
+SRCS	=	main.cpp ScalarConverter.cpp
 OBJS	=	$(SRCS:.cpp=.o)
 
 CC			= c++
 RM			= rm -f
-CFLAGS		= -Wall -Werror -Wextra -std=c++98
+CFLAGS		= #-Wall -Werror -Wextra -std=c++98
 
 NAME		= ex00
 
