@@ -5,21 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 17:33:33 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/03 15:16:18 by Cutku            ###   ########.fr       */
+/*   Created: 2023/11/03 15:24:06 by Cutku             #+#    #+#             */
+/*   Updated: 2023/11/03 16:09:41 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Serializer.hpp"
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	if (argc != 2)
-	{
-		std::cout<<"Wrong number of arguments"<<std::endl;
-		return (1);
-	}
-	std::cout<<std::fixed;
-	ScalarConverter::convert(argv[1]);
+	uintptr_t raw;
+	Data *data;
+	Data *temp;
+
+	data = new Data;
+	data->str1 = "Hello";
+	data->n = 42;
+	data->f = 3.14f;
+	data->str2 = "World";
+	raw = Serializer::serialize(data);
+	std::cout<<"address: "<<data<<std::endl;
+	std::cout<<"raw: "<<raw<<std::endl;
+	temp = Serializer::deserialize(raw);
+	std::cout<<"temp->s1: "<<temp->str1<<std::endl;
+	std::cout<<"temp->n: "<<temp->n<<std::endl;
+	std::cout<<"temp->f: "<<temp->f<<std::endl;
+	std::cout<<"temp->s2: "<<temp->str2<<std::endl;
+	delete temp;
 	return (0);
 }

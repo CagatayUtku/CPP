@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:31:57 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/02 18:32:02 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/03 15:05:41 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,8 @@ bool ScalarConverter::isInt(char *str)
 	unsigned long	 i;
 
 	i = 0;
+	if (str[0] == '-' || str[0] == '+')
+		i++;
 	while(std::isdigit(str[i]))
 		i++;
 	if (i == std::strlen(str))
@@ -184,6 +186,8 @@ bool ScalarConverter::isFloat(char *str)
 	i = 0;
 	dot = 0;
 	f = 0;
+	if (str[0] == '-' || str[0] == '+')
+		i++;
 	while (str[i] != '\0')
 	{
 		if (std::isdigit(str[i]))
@@ -219,6 +223,8 @@ bool ScalarConverter::isDouble(char *str)
 
 	i = 0;
 	dot = 0;
+	if (str[0] == '-' || str[0] == '+')
+		i++;
 	while (str[i] != '\0')
 	{
 		if (std::isdigit(str[i]))

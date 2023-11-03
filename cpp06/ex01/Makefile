@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/03 15:35:54 by Cutku             #+#    #+#              #
-#    Updated: 2023/11/03 15:36:17 by Cutku            ###   ########.fr        #
+#    Created: 2023/11/03 15:35:42 by Cutku             #+#    #+#              #
+#    Updated: 2023/11/03 15:36:50 by Cutku            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,14 +21,14 @@ WHITE = \033[0;97m
 
 .SILENT:
 
-SRCS	=	main.cpp ScalarConverter.cpp
+SRCS	=	main.cpp Serializer.cpp
 OBJS	=	$(SRCS:.cpp=.o)
 
 CC			= c++
 RM			= rm -f
 CFLAGS		= -Wall -Werror -Wextra -std=c++98
 
-NAME		= convert
+NAME		= Serialization
 
 all: $(NAME)
 
@@ -37,7 +37,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	echo "$(GREEN)Ex00 compiled successfully!$(DEF_COLOR)"
+	echo "$(GREEN)Ex01 compiled successfully!$(DEF_COLOR)"
 clean:
 	$(RM) $(OBJS)
 

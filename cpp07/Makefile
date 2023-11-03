@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/03 15:35:54 by Cutku             #+#    #+#              #
-#    Updated: 2023/11/03 15:36:17 by Cutku            ###   ########.fr        #
+#    Created: 2023/11/03 17:47:05 by Cutku             #+#    #+#              #
+#    Updated: 2023/11/03 17:47:13 by Cutku            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,14 +21,14 @@ WHITE = \033[0;97m
 
 .SILENT:
 
-SRCS	=	main.cpp ScalarConverter.cpp
+SRCS	=	main.cpp
 OBJS	=	$(SRCS:.cpp=.o)
 
 CC			= c++
 RM			= rm -f
 CFLAGS		= -Wall -Werror -Wextra -std=c++98
 
-NAME		= convert
+NAME		= Ex00
 
 all: $(NAME)
 

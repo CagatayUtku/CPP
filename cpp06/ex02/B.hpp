@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 17:33:33 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/03 15:16:18 by Cutku            ###   ########.fr       */
+/*   Created: 2023/11/03 16:12:18 by Cutku             #+#    #+#             */
+/*   Updated: 2023/11/03 16:12:30 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef B_HPP
+# define B_HPP
 
-int	main(int argc, char **argv)
+# include "Base.hpp"
+
+class B : public Base
 {
-	if (argc != 2)
-	{
-		std::cout<<"Wrong number of arguments"<<std::endl;
-		return (1);
-	}
-	std::cout<<std::fixed;
-	ScalarConverter::convert(argv[1]);
-	return (0);
-}
+};
+
+#endif

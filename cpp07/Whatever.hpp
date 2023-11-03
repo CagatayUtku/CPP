@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 17:33:33 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/03 15:16:18 by Cutku            ###   ########.fr       */
+/*   Created: 2023/11/03 17:33:03 by Cutku             #+#    #+#             */
+/*   Updated: 2023/11/03 18:02:38 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
-int	main(int argc, char **argv)
+template <typename T>
+void	swap(T &a, T &b)
 {
-	if (argc != 2)
-	{
-		std::cout<<"Wrong number of arguments"<<std::endl;
-		return (1);
-	}
-	std::cout<<std::fixed;
-	ScalarConverter::convert(argv[1]);
-	return (0);
-}
+	T temp;
+
+	temp = a;
+	a = b;
+	b = temp;
+};
+
+template <typename T>
+T const&	min(T const &a, T const &b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+};
+
+template <typename T>
+T const&	max(T const &a, T const &b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+};
+
+#endif

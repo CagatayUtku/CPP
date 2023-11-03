@@ -5,21 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 17:33:33 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/03 15:16:18 by Cutku            ###   ########.fr       */
+/*   Created: 2023/11/03 17:35:50 by Cutku             #+#    #+#             */
+/*   Updated: 2023/11/03 17:59:08 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include <iostream>
+#include "Whatever.hpp"
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	if (argc != 2)
-	{
-		std::cout<<"Wrong number of arguments"<<std::endl;
-		return (1);
-	}
-	std::cout<<std::fixed;
-	ScalarConverter::convert(argv[1]);
+	int a;
+	int b;
+	// int *ptr1;
+	// int *ptr2;
+	// std::string str1;
+	// std::string str2;
+	float f1;
+	float f2;
+
+	a = 2;
+	b = 5;
+	f1 = 2.5f;
+	f2 = 5.5f;
+
+	std::cout<<min(a, b)<<std::endl;
+	std::cout<<max(a, b)<<std::endl;
+	std::cout<<min(f1, f2)<<std::endl;
+	std::cout<<max(f1, f2)<<std::endl;
 	return (0);
 }
