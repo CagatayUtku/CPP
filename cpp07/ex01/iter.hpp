@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 17:35:50 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/03 17:59:08 by Cutku            ###   ########.fr       */
+/*   Created: 2023/11/04 12:47:03 by Cutku             #+#    #+#             */
+/*   Updated: 2023/11/04 12:58:49 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Whatever.hpp"
+#ifndef ITER_HPP
+# define ITER_HPP
 
-int	main(void)
+# include <iostream>
+
+template <typename T>
+void	iter(T *arr, size_t len, void (*func)(T const &))
 {
-	int a;
-	int b;
-	// int *ptr1;
-	// int *ptr2;
-	// std::string str1;
-	// std::string str2;
-	float f1;
-	float f2;
-
-	a = 2;
-	b = 5;
-	f1 = 2.5f;
-	f2 = 5.5f;
-
-	std::cout<<min(a, b)<<std::endl;
-	std::cout<<max(a, b)<<std::endl;
-	std::cout<<min(f1, f2)<<std::endl;
-	std::cout<<max(f1, f2)<<std::endl;
-	return (0);
+	for (size_t i = 0; i < len; i++)
+		func(arr[i]);
 }
+
+template <typename T>
+void	print(T const &i)
+{
+	std::cout << i << std::endl;
+}
+
+#endif
