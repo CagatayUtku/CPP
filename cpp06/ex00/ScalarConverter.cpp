@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:31:57 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/03 15:05:41 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/07 10:22:30 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -255,13 +255,13 @@ char ScalarConverter::valueChar(char *str)
 int ScalarConverter::valueInt(char *str)
 {
 	char *end;
-	int i;
+	long value;
 
 	errno = 0;
-	i = strtol(str, &end, 10);
-	if (errno == ERANGE)
+	value = strtol(str, &end, 10);
+	if (errno == ERANGE || value > std::numeric_limits<int>::max() || value < std::numeric_limits<int>::min())
 		throw ScalarConverter::ImpossibleException();
-	return (i);
+	return (static_cast<int>(value));
 }
 
 float ScalarConverter::valueFloat(char *str)

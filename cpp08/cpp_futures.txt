@@ -1,0 +1,33 @@
+In C++, containers are classes that encapsulate different data structures and provide a way to store and manipulate collections of data. They are a fundamental part of the Standard Template Library (STL).
+
+Here are the main types of containers in C++:
+
+Sequence Containers: These containers store elements strictly in linear sequence. Examples include:
+
+std::vector: Similar to a dynamic array, its size can grow and shrink dynamically, and it allows direct access to any element.
+std::deque: Double-ended queue, allows fast insertion and deletion at both its beginning and its end.
+std::list: Doubly-linked list, allows fast insertions and deletions at any place in the sequence.
+std::forward_list: Singly-linked list, allows fast insertions and deletions at any place in the sequence.
+std::array: Fixed-size array, it does not grow in size dynamically.
+
+Associative Containers: These containers are generally used for implementing data structures that allow for fast data retrieval. Examples include:
+
+std::set: Collection of unique keys, sorted by keys.
+std::map: Collection of key-value pairs, sorted by keys, keys are unique.
+std::multiset: Collection of keys, sorted by keys.
+std::multimap: Collection of key-value pairs, sorted by k eys.
+
+Unordered Associative Containers: These containers do not sort their elements. Examples include:
+
+std::unordered_set: Collection of unique keys, hashed by keys.
+std::unordered_map: Collection of key-value pairs, hashed by keys, keys are unique.
+std::unordered_multiset: Collection of keys, hashed by keys.
+std::unordered_multimap: Collection of key-value pairs, hashed by keys.
+
+Container Adaptors: These are not full container classes, but wrappers around other containers. Examples include:
+
+std::stack: Provides an adaptation of a container to provide stack (LIFO data structure) semantics.
+std::queue: Provides an adaptation of a container to provide queue (FIFO data structure) semantics.
+std::priority_queue: Provides an adaptation of a container to provide priority queue semantics.
+Each container has its own advantages and should be used based on the requirements of your program. For example, if you need to frequently access elements by their index, std::vector would be a good choice.
+If you need to frequently insert and delete elements in the middle of the sequence, std::list or std::forward_list would be more suitable. If you need to keep elements sorted and frequently perform look-ups, std::set or std::map would be a good choice.

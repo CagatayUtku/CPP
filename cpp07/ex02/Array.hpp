@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 13:19:20 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/04 13:40:49 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/07 10:10:40 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ template <typename T>
 class Array
 {
 	private:
-		T				*_array;
 		unsigned int	_size;
+		T				*_arr;
 	public:
 		Array();
 		Array(unsigned int n);
