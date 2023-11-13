@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:57:29 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/12 18:39:27 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/13 14:26:58 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,10 @@ unsigned int	PmergeMe::isPositiveInteger(const std::string &str)
 
 
 
+void	printPairs()
+{
+	
+}
 
 
 
