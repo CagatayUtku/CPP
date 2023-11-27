@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 09:59:27 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/01 13:12:07 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/26 15:12:03 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define AFORM_HPP
 
 #include <iostream>
-#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;

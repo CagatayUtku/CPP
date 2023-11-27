@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 13:08:28 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/01 12:43:47 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/26 15:49:16 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void		ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	AForm::execute(executor);
 	std::ofstream file;
-	file.open(this->_target + "_shrubbery");
+	file.open((this->_target + "_shrubbery").c_str());
 	file << "                                                         .\n";
 	file << "                                              .         ;  \n";
 	file << "                 .              .              ;%     ;;   \n";

@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 13:26:46 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/01 12:42:02 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/26 15:49:37 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	AForm::execute(executor);
 	std::cout<<"Some drilling noises"<<std::endl;
-	if (rand() % 2 == 0)
+	std::srand(std::time(NULL));
+	if (std::rand() % 2 == 0)
 		std::cout<<this->_target<<" has been robotomized successfully"<<std::endl;
 	else
 		std::cout<<"Robotomization of "<<this->_target<<" failed"<<std::endl;

@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:16:46 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/01 15:54:33 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/25 12:16:28 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,6 @@ void Bureaucrat::decrement()
 	else
 		_grade += 1;
 }
-
-
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bla)
 {

@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:31:57 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/07 10:22:30 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/27 18:57:43 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -259,7 +259,7 @@ int ScalarConverter::valueInt(char *str)
 
 	errno = 0;
 	value = strtol(str, &end, 10);
-	if (errno == ERANGE || value > std::numeric_limits<int>::max() || value < std::numeric_limits<int>::min())
+	if (errno != 0 || value > std::numeric_limits<int>::max() || value < std::numeric_limits<int>::min())
 		throw ScalarConverter::ImpossibleException();
 	return (static_cast<int>(value));
 }
@@ -281,18 +281,15 @@ double ScalarConverter::valueDouble(char *str)
 {
 	char *end;
 	double d;
+
+	errno = 0;
 	d = strtod(str, &end);
-	if (errno == ERANGE)
+	if (errno != 0)
 		throw ScalarConverter::ImpossibleException();
 	return (d);
 }
 
 //exception classes
-
-const char* ScalarConverter::NonDisplayableException::what() const throw()
-{
-	return ("Non displayable");
-}
 
 const char* ScalarConverter::ImpossibleException::what() const throw()
 {

@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:37:44 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/01 13:12:21 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/26 15:14:46 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ AForm::AForm(const std::string name, const int gradeToSign, const int gradeToExe
 		throw AForm::GradeTooLowException();
 	if (gradeToSign < 1 || gradeToSign < 1)
 		throw AForm::GradeTooHighException();
-	std::cout<<"AForm Default constructor called."<<std::endl;
+	std::cout<<"AForm Parameterized constructor called."<<std::endl;
 }
 
 AForm::AForm(const AForm &copy) : _name(copy._name), _signed(copy._signed), _gradeToSign(copy._gradeToSign), _gradeToExec(copy._gradeToExec)
@@ -102,8 +102,13 @@ void AForm::execute(Bureaucrat const & executor) const
 		throw AForm::GradeTooLowException();
 }
 
-std::ostream &operator<<(std::ostream &out, const AForm &bla)
+std::ostream& operator<<(std::ostream& out, const AForm& form)
 {
-	out<<bla.getName()<<", bureaucrat grade "<<bla.getGradeToSign()<<", bureaucrat grade "<<bla.getGradeToExec()<<", signed: "<<bla.getSigned()<<"."<<std::endl;
+	out << "Form " << form.getName() << " is ";
+	if (form.getSigned())
+		out << "signed and ";
+	else
+		out << "not signed and ";
+	out << "requires grade " << form.getGradeToSign() << " to sign and grade " << form.getGradeToExec() << " to execute.";
 	return (out);
 }

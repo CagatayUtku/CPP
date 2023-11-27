@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 13:42:30 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/01 15:50:50 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/26 15:47:10 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ AForm* Intern::makeForm(std::string name, std::string target)
 		if (name == formNames[i])
 			return (form[i](target));
 	}
-	std::cout<<"Intern can't create "<<name<<" form."<<std::endl;
-	return (NULL);
+	throw FormNotFoundException();
+}
+
+const char* Intern::FormNotFoundException::what() const throw()
+{
+	return ("Form not found.");
 }

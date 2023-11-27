@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:16:46 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/01 15:52:19 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/25 13:24:21 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name)
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy)
 {
-	this->_grade = copy._grade;
+	if (this != &copy)
+		this->_grade = copy._grade;
 	return (*this);
 }
 
@@ -86,12 +87,12 @@ void	Bureaucrat::signForm(Form  &form)
 {
 	try
 	{
-		if (form.beSigned(*this))
-			std::cout<<this->_name<<"signed "<<form.getName()<<std::endl;
+		form.beSigned(*this);
+		std::cout<<this->_name<<" signed "<<form.getName()<<"."<<std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr<<this->_name<<"couldn’t sign "<<form.getName()<<" because "<< e.what() << '\n';
+		std::cerr<<this->_name<<" couldn’t sign "<<form.getName()<<" because "<< e.what() << '\n';
 	}
 }
 

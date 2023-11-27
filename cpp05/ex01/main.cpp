@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:00:12 by Cutku             #+#    #+#             */
-/*   Updated: 2023/10/26 16:19:12 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/26 15:03:46 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ int main(void)
 		//Normal cases
 		Bureaucrat John("John", 100);
 		Bureaucrat Frank("Frank", 5);
-		Form Aform("paper", 50, 50);
+		Form aForm("paper", 50, 50);
 		std::cout<<John<<Frank;
 
 		John.decrement();
 		Frank.increment();
-		Aform.beSigned(John);
-		// John.signForm(Aform);
+		John.signForm(aForm);
+		Frank.signForm(aForm);
 		std::cout<<John<<Frank;
 	}
 	catch(const std::exception& e)

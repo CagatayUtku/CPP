@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:37:44 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/01 15:54:03 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/26 14:53:15 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Form::Form(const std::string name, const int gradeToSign, const int gradeToExec)
 		throw Form::GradeTooLowException();
 	if (gradeToSign < 1 || gradeToSign < 1)
 		throw Form::GradeTooHighException();
-	std::cout<<"Form Default constructor called."<<std::endl;
+	std::cout<<"Form Parameterized constructor called."<<std::endl;
 }
 
 Form::Form(const Form &copy) : _name(copy._name), _signed(copy._signed), _gradeToSign(copy._gradeToSign), _gradeToExec(copy._gradeToExec)
@@ -35,7 +35,8 @@ Form::Form(const Form &copy) : _name(copy._name), _signed(copy._signed), _gradeT
 
 Form& Form::operator=(const Form &copy)
 {
-	this->_signed = copy._signed;
+	if (this != &copy)
+		this->_signed = copy._signed;
 	return (*this);
 }
 
@@ -68,13 +69,10 @@ std::string Form::getName() const
 
 //member functions
 
-bool Form::beSigned(const Bureaucrat &bure)
+void Form::beSigned(const Bureaucrat &bure)
 {
 	if (this->_gradeToSign >= bure.getGrade())
-	{
 		this->_signed = true;
-		return (true);
-	}
 	else
 		throw Form::GradeTooLowException();
 }

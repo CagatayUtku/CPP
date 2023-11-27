@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 13:41:37 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/01 15:38:56 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/26 15:46:13 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ class Intern
 		~Intern();
 
 		AForm* makeForm(std::string name, std::string target);
+		class FormNotFoundException : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 09:59:27 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/01 15:52:57 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/25 13:11:34 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class Form
 		int getGradeToExec() const;
 		bool getSigned() const;
 	//member_functions
-		bool beSigned(const Bureaucrat &bure);
+		void beSigned(const Bureaucrat &bure);
 	//error-exception classes
 	class GradeTooHighException : public std::exception
 	{

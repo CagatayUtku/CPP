@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:00:12 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/01 15:28:41 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/26 15:48:36 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(void)
 		AForm *form1;
 		AForm *form2;
 		AForm *form3;
-		AForm *form4;
+		// AForm *form4;
 
 		// PresidentialPardonForm form1("PardonForm");
 		// ShrubberyCreationForm form2("ShrubberyForm");
@@ -39,8 +39,8 @@ int main(void)
 		std::cout <<std::endl;
 		form3 = intern.makeForm("shrubbery creation", "ShrubberyForm");
 		std::cout <<std::endl;
-		form4 = intern.makeForm("blabla", "bla");
-		std::cout <<std::endl;
+		// form4 = intern.makeForm("blabla", "bla");
+		// std::cout <<std::endl;
 
 
 		std::cout << bureaucrat1 << std::endl;
@@ -49,7 +49,6 @@ int main(void)
 		std::cout << *form1 << std::endl;
 		std::cout << *form2 << std::endl;
 		std::cout << *form3 << std::endl;
-		std::cout << form4 << std::endl;
 
 		std::cout <<"\nSuccessful Operations\n"<< std::endl;
 
@@ -74,6 +73,9 @@ int main(void)
 		bureaucrat2.executeForm(*form3);
 
 		std::cout <<std::endl;
+		delete form1;
+		delete form2;
+		delete form3;
 
 	}
 	catch (std::exception &e) {

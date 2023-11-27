@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 13:23:39 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/01 12:49:30 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/26 15:29:09 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include <cstdlib>
+#include <ctime>
 
 
 class RobotomyRequestForm : public AForm

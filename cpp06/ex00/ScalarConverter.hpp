@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:09:57 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/02 18:13:37 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/11/27 18:57:37 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,6 @@ class	ScalarConverter
 		static	bool isFloat(char *str);
 		static	bool isDouble(char *str);
 		
-		class NonDisplayableException : public std::exception
-		{
-			public:
-				virtual const char* what() const throw();
-		};
 		class ImpossibleException : public std::exception
 		{
 			public:

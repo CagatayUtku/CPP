@@ -16,17 +16,17 @@ OBJS	=	$(SRCS:.cpp=.o)
 
 CC			= c++
 RM			= rm -f
-CFLAGS		= -Wall -Werror -Wextra -std=c++98
+CPPLAGS		= -Wall -Werror -Wextra -std=c++98
 
-NAME		= Ex02
+NAME		= Ex03
 
 all: $(NAME)
 
 %.o:	%.cpp
-	$(CC) $(INC) $(CFLAGS) -c $< -o $@
+	$(CC) $(INC) $(CPPLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CPPLAGS) $(OBJS) -o $(NAME)
 	echo "$(GREEN)Ex03 compiled successfully!$(DEF_COLOR)"
 
 clean:
