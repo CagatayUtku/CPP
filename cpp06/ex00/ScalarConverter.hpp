@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:09:57 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/27 18:57:37 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/12/02 12:05:36 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,7 @@ class	ScalarConverter
 		ScalarConverter &operator=(const ScalarConverter &copy);
 		~ScalarConverter();
 	public:
-		static	int typeSelector(char *str);
 		static	void convert(char *str);
-		static	char valueChar(char *str);
-		static	int valueInt(char *str);
-		static	float valueFloat(char *str);
-		static	double valueDouble(char *str);
-		static	bool isChar(char *str);
-		static	bool isInt(char *str);
-		static	bool isFloat(char *str);
-		static	bool isDouble(char *str);
-		
 		class ImpossibleException : public std::exception
 		{
 			public:

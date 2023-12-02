@@ -6,11 +6,13 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 17:31:57 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/27 18:57:43 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/12/02 13:36:38 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
+//Ortodox - Canonical - Form
 
 ScalarConverter::ScalarConverter()
 {
@@ -32,7 +34,8 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &copy)
 ScalarConverter::~ScalarConverter()
 {
 }
-//convert check functions
+
+//convert error-functions
 
 bool convertableInt(double bla)
 {
@@ -43,7 +46,7 @@ bool convertableInt(double bla)
 
 int convertableChar(double bla)
 {
-	if (bla > 127)
+	if (bla > 127 || bla < 0)
 		return (IMPOSSIBLE);
 	if (bla > 126 || bla < 32)
 		return (NON_DISPLAYABLE);
@@ -57,113 +60,16 @@ bool convertableFloat(double bla)
 	return (true);
 }
 
-void ScalarConverter::convert(char *str)
-{
-	int type;
+//type selector functions
 
-	type = typeSelector(str);
-	if (type == -1)
-	{
-		std::cout<<"Error: Invalid input"<<std::endl;
-		return ;
-	}
-	try
-	{	
-		switch (type)
-		{
-			case CHAR:
-			{
-				char a = valueChar(str);
-				std::cout<<"char: "<<a<<std::endl;
-				std::cout<<"int: "<<static_cast<int>(str[0])<<std::endl;
-				std::cout<<"float: "<<std::setprecision(1)<<static_cast<float>(str[0])<<'f'<<std::endl;
-				std::cout<<"double: "<<std::setprecision(1)<<static_cast<double>(str[0])<<std::endl;
-				break;
-			}
-			case INT:
-			{
-				int _int = valueInt(str);
-				if (convertableChar(_int) == NON_DISPLAYABLE)
-					std::cout<<"char: Non displayable"<<std::endl;
-				else if (convertableChar(_int) == IMPOSSIBLE)
-					std::cout<<"char: impossible"<<std::endl;
-				else
-					std::cout<<"char: "<<static_cast<char>(_int)<<std::endl;
-				std::cout<<"int: "<<_int<<std::endl;
-				std::cout<<"float: "<<std::setprecision(1)<<static_cast<float>(_int)<<'f'<<std::endl;
-				std::cout<<"double: "<<std::setprecision(1)<<static_cast<double>(_int)<<std::endl;
-				break;
-			}
-			case FLOAT:
-			{
-				float _float = valueFloat(str);
-				if (convertableChar(_float) == NON_DISPLAYABLE)
-					std::cout<<"char: Non displayable"<<std::endl;
-				else if (convertableChar(_float) == IMPOSSIBLE)
-					std::cout<<"char: impossible"<<std::endl;
-				else
-					std::cout<<"char: "<<static_cast<char>(_float)<<std::endl;
-				if (convertableInt(_float) == false)
-					std::cout<<"int: impossible"<<std::endl;
-				else
-					std::cout<<"int: "<<static_cast<int>(_float)<<std::endl;
-				std::cout<<"float: "<<_float<<'f'<<std::endl;
-				std::cout<<"double: "<<static_cast<double>(_float)<<std::endl;
-				break;
-			}
-			case DOUBLE:
-			{
-				double _double = valueDouble(str);
-				if (convertableChar(_double) == NON_DISPLAYABLE)
-					std::cout<<"char: Non displayable"<<std::endl;
-				else if (convertableChar(_double) == IMPOSSIBLE)
-					std::cout<<"char: impossible"<<std::endl;
-				else
-					std::cout<<"char: "<<static_cast<char>(_double)<<std::endl;
-				if (convertableInt(_double) == false)
-					std::cout<<"int: impossible"<<std::endl;
-				else
-					std::cout<<"int: "<<static_cast<int>(_double)<<std::endl;
-				if (convertableFloat(_double) == false)
-					std::cout<<"float: impossible"<<std::endl;
-				else
-					std::cout<<"float: "<<static_cast<float>(_double)<<'f'<<std::endl;
-				std::cout<<"double: "<<_double<<std::endl;
-				break;
-			}
-			default:
-				break;
-		}
-	}
-	catch (std::exception &e)
-	{
-		std::cout<<e.what()<<std::endl;
-	}
-}
-
-//type check functions
-
-int	ScalarConverter::typeSelector(char *str)
-{
-	if (isChar(str))
-		return (0);
-	else if (isInt(str))
-		return (1);
-	else if (isFloat(str))
-		return (2);
-	else if (isDouble(str))
-		return (3);
-	return (-1);
-}
-
-bool ScalarConverter::isChar(char *str)
+bool isChar(char *str)
 {
 	if (std::strlen(str) == 1 && !std::isdigit(str[0]))
 		return (true);
 	return (false);
 }
 
-bool ScalarConverter::isInt(char *str)
+bool isInt(char *str)
 {
 	unsigned long	 i;
 
@@ -177,17 +83,16 @@ bool ScalarConverter::isInt(char *str)
 	return (false);
 }
 
-bool ScalarConverter::isFloat(char *str)
+bool isFloat(char *str)
 {
 	unsigned long	i;
-	int		dot;
-	int		f;
+	int		dot = 0;
+	int		f = 0;
+	unsigned long	sign = 0;
 
-	i = 0;
-	dot = 0;
-	f = 0;
 	if (str[0] == '-' || str[0] == '+')
-		i++;
+		sign = 1;
+	i = sign;
 	while (str[i] != '\0')
 	{
 		if (std::isdigit(str[i]))
@@ -211,12 +116,12 @@ bool ScalarConverter::isFloat(char *str)
 		else
 			return (false);
 	}
-	if (dot != 1 || f != 1)
+	if (dot != 1 || f != 1 || i <= sign + 2)
 		return (false);
 	return (true);
 }
 
-bool ScalarConverter::isDouble(char *str)
+bool isDouble(char *str)
 {
 	int		i;
 	int		dot;
@@ -245,14 +150,26 @@ bool ScalarConverter::isDouble(char *str)
 	return (true);
 }
 
+int	typeSelector(char *str)
+{
+	if (isChar(str))
+		return (0);
+	else if (isInt(str))
+		return (1);
+	else if (isFloat(str))
+		return (2);
+	else if (isDouble(str))
+		return (3);
+	return (-1);
+}
 //value functions
 
-char ScalarConverter::valueChar(char *str)
+char valueChar(char *str)
 {
 	return (str[0]);
 }
 
-int ScalarConverter::valueInt(char *str)
+int valueInt(char *str)
 {
 	char *end;
 	long value;
@@ -264,7 +181,7 @@ int ScalarConverter::valueInt(char *str)
 	return (static_cast<int>(value));
 }
 
-float ScalarConverter::valueFloat(char *str)
+float valueFloat(char *str)
 {
 	char *end;
 	float f;
@@ -277,7 +194,7 @@ float ScalarConverter::valueFloat(char *str)
 	return (f);
 }
 
-double ScalarConverter::valueDouble(char *str)
+double valueDouble(char *str)
 {
 	char *end;
 	double d;
@@ -287,6 +204,109 @@ double ScalarConverter::valueDouble(char *str)
 	if (errno != 0)
 		throw ScalarConverter::ImpossibleException();
 	return (d);
+}
+
+bool pseudoLiterals(char *str)
+{
+	std::string input = str;
+	if (input == "-inff" || input == "+inff" || input == "nanf")
+	{
+		std::cout<<"char: impossible"<<std::endl<<"int: impossible"<<std::endl<<"float: "<<input<<std::endl<<"double: "<<input.substr(0, input.length() - 1)<<std::endl;
+		return (true);
+	}
+	else if (input == "-inf" || input == "+inf" || input == "nan")
+	{
+		std::cout<<"char: impossible"<<std::endl<<"int: impossible"<<std::endl<<"float: "<<input<<"f"<<std::endl<<"double: "<<input<<std::endl;
+		return (true);
+	}
+	return (false);
+}
+//convert member function
+
+void ScalarConverter::convert(char *str)
+{
+	int type;
+
+	if (pseudoLiterals(str))
+		return ;
+	type = typeSelector(str);
+	if (type == -1)
+	{
+		std::cout<<"Error: Invalid input"<<std::endl;
+		return ;
+	}
+	try
+	{	
+		switch (type)
+		{
+			case CHAR:
+			{
+				char a = valueChar(str);
+				std::cout<<"char: '"<<a<<"'"<<std::endl;
+				std::cout<<"int: "<<static_cast<int>(str[0])<<std::endl;
+				std::cout<<"float: "<<std::setprecision(2)<<static_cast<float>(str[0])<<'f'<<std::endl;
+				std::cout<<"double: "<<std::setprecision(2)<<static_cast<double>(str[0])<<std::endl;
+				break;
+			}
+			case INT:
+			{
+				int _int = valueInt(str);
+				if (convertableChar(_int) == NON_DISPLAYABLE)
+					std::cout<<"char: Non displayable"<<std::endl;
+				else if (convertableChar(_int) == IMPOSSIBLE)
+					std::cout<<"char: impossible"<<std::endl;
+				else
+					std::cout<<"char: '"<<static_cast<char>(_int)<<"'"<<std::endl;
+				std::cout<<"int: "<<_int<<std::endl;
+				std::cout<<"float: "<<std::setprecision(2)<<static_cast<float>(_int)<<'f'<<std::endl;
+				std::cout<<"double: "<<std::setprecision(2)<<static_cast<double>(_int)<<std::endl;
+				break;
+			}
+			case FLOAT:
+			{
+				float _float = valueFloat(str);
+				if (convertableChar(_float) == NON_DISPLAYABLE)
+					std::cout<<"char: Non displayable"<<std::endl;
+				else if (convertableChar(_float) == IMPOSSIBLE)
+					std::cout<<"char: impossible"<<std::endl;
+				else
+					std::cout<<"char: '"<<static_cast<char>(_float)<<"'"<<std::endl;
+				if (convertableInt(_float) == false)
+					std::cout<<"int: impossible"<<std::endl;
+				else
+					std::cout<<"int: "<<static_cast<int>(_float)<<std::endl;
+				std::cout<<"float: "<<std::setprecision(2)<<_float<<'f'<<std::endl;
+				std::cout<<"double: "<<std::setprecision(2)<<static_cast<double>(_float)<<std::endl;
+				break;
+			}
+			case DOUBLE:
+			{
+				double _double = valueDouble(str);
+				if (convertableChar(_double) == NON_DISPLAYABLE)
+					std::cout<<"char: Non displayable"<<std::endl;
+				else if (convertableChar(_double) == IMPOSSIBLE)
+					std::cout<<"char: impossible"<<std::endl;
+				else
+					std::cout<<"char: '"<<static_cast<char>(_double)<<"'"<<std::endl;
+				if (convertableInt(_double) == false)
+					std::cout<<"int: impossible"<<std::endl;
+				else
+					std::cout<<"int: "<<static_cast<int>(_double)<<std::endl;
+				if (convertableFloat(_double) == false)
+					std::cout<<"float: impossible"<<std::endl;
+				else
+					std::cout<<"float: "<<std::setprecision(2)<<static_cast<float>(_double)<<'f'<<std::endl;
+				std::cout<<"double: "<<std::setprecision(2)<<_double<<std::endl;
+				break;
+			}
+			default:
+				break;
+		}
+	}
+	catch (std::exception &e)
+	{
+		std::cout<<e.what()<<std::endl;
+	}
 }
 
 //exception classes

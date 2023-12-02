@@ -6,7 +6,7 @@
 /*   By: Cutku <cutku@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:22:02 by Cutku             #+#    #+#             */
-/*   Updated: 2023/11/03 15:30:57 by Cutku            ###   ########.fr       */
+/*   Updated: 2023/12/02 13:43:09 by Cutku            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <limits>
 # include <cmath>
 # include <iomanip>
+# include <stdint.h>
 
 typedef struct	s_Data
 {
